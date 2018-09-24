@@ -1,0 +1,5 @@
+ToDO
+- Double-check current TA module
+- Get last two candles strategy to monitor data (and pop oldest one when necessary)
+- Find buy signals strategies combinations: RSI, MACD confirm, RSI bullish div, others
+- Include AI

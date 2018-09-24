@@ -1,0 +1,13 @@
+https://github.com/binance-exchange/binance-official-api-docs/		            | Binance API docs
+https://github.com/sammchardy/python-binance/									| Binance API wrapper 1 (using customized)
+https://github.com/toshima/binance/blob/master/binance.py  				        | Binance API wrapper 2 - Simple, have a look for orders
+https://github.com/cnfuyu/python-binance-api/tree/master/binance 	            | Binance API wrapper 3 (not using)
+
+https://github.com/JPStrydom/Crypto-Trading-Bot									| Trading Bot 1
+
+https://github.com/kylejusticemagnuson/pyti									    | Complete python TA library
+https://github.com/rpazyaquian/PyTA												| Simplified python TA library inspired in TA-lib
+https://github.com/mrjbq7/ta-lib												| Python wrapper for TA-Lib (C Library for TA)
+https://github.com/gregtam/python-technical-analysis							| Python TA - Big, messy. Useful for plotting and strategies ?
+
+https://tutorialedge.net/python/concurrency/python-threadpoolexecutor-tutorial/ | Threading
