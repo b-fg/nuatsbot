@@ -30,7 +30,7 @@ TA related parameters:
 Bot related parameters:
 - ``live``: Boolean to indicate if an infinite loop (execution of the bot) is desired. If false, the analysis will be only done once.
 - ``sleep``: Sleep value for `live` executions. Indicates the time between analysis. Check Binance API restrictions for more info.
-- ``threading``: Start of the period to analyse. If it is too recent to get `n_periods` only the last possible periods are analysed.
+- ``threading``: Boolean to indicate a multithread execution or serial execution. The bot runs much faster multithreading of course!
 - ``telegram_token``: Token of the Telegram Bot used to broadcast signals in Telegram channels. More info below.
 - ``telegram_chat_ids``: List of the chat ids where the Telegram Bot is admin and can send messages. More info below.
 - ``discord_webhooks``: List of discord webhooks. More info below.
