@@ -79,6 +79,8 @@ class NuatsTA(object) :
         # Compute indicators
         rsi = self.rsi()
 
+        print(self.candles[-3].close)
+
         # RSI analysis
         if rsi[-1] > rsi_bull_threshold:
             notifications.append(Notification(0, self.ticker, self.interval, rsi[-1]))
@@ -101,25 +103,26 @@ class NuatsTA(object) :
 
         intervals_register = []
         for num_int in num_intervals:
-            x = list(range(num_int))
-            x = np.expand_dims(x, 1)
+            if len(self.candles) >= num_int:
+                x = list(range(num_int))
+                x = np.expand_dims(x, 1)
 
-            y_rsi = self.indicators['rsi'][-num_int:]
-            y_price = self.prices[-num_int:]
+                y_rsi = self.indicators['rsi'][-num_int:]
+                y_price = self.prices[-num_int:]
 
-            reg_rsi.fit(x, y_rsi)
-            reg_price.fit(x, y_price)
+                reg_rsi.fit(x, y_rsi)
+                reg_price.fit(x, y_price)
 
-            m_rsi = reg_rsi.coef_[0]
-            m_price = reg_price.coef_[0]
-            m_rsi_deg = np.arctan(m_rsi) * 180 / np.pi
-            m_price_deg = np.arctan(m_price) * 180 / np.pi
+                m_rsi = reg_rsi.coef_[0]
+                m_price = reg_price.coef_[0]
+                m_rsi_deg = np.arctan(m_rsi) * 180 / np.pi
+                m_price_deg = np.arctan(m_price) * 180 / np.pi
 
-            if m_rsi > 0 and m_price < 0 and m_rsi_deg > divergence_degrees:
-            # if m_rsi > 0 and m_price < 0: # Bullish div
-                intervals_register.append(('Bull', num_int))
-            elif m_rsi < 0 and m_price > 0: # Bearish div
-                intervals_register.append(('Bear', num_int))
+                if m_rsi > 0 and m_price < 0 and m_rsi_deg > divergence_degrees:
+                # if m_rsi > 0 and m_price < 0: # Bullish div
+                    intervals_register.append(('Bull', num_int))
+                elif m_rsi < 0 and m_price > 0: # Bearish div
+                    intervals_register.append(('Bear', num_int))
 
         all_bull = all(item[0] == "Bull" for item in intervals_register)
         all_bear = all(item[0] == "Bear" for item in intervals_register)
@@ -140,8 +143,7 @@ class NuatsTA(object) :
         # plt.plot(x, reg_price.predict(x), color='k')
         #
         # plt.show()
-
-        return notifications
+        if (len(notifications) > 0): return notifications
 
 
     def sma(self):

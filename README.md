@@ -22,10 +22,10 @@ In the `config.py` file the user can set the following parameters:
 
 TA related parameters:
 - ``tickers``: List of tickers to analyse. If empty, all the available tickers in Binance are selected by default. E.g.: `['BTCUSDT', 'ETHBTC']`
-- ``intervals``: List of intervals to analyse. E.g.: `['30min','1h','1d']`
-- ``n_periods``: Number of periods (bars or klines) for the selected intervals for which the TA will be performed.
-- ``start_time``: Start of the period to analyse. If it is too recent to get `n_periods` only the last possible periods are analysed.
-- ``end_time``: End of the period to analyse. If it is too old to get `n_periods` only the last possible periods are analysed.
+- ``intervals``: List of intervals to analyse. E.g.: `['30min','1h','1d']`.
+- ``n_periods``: Number of periods (bars or klines) for the selected intervals for which the TA will be performed. If blank, default is 500.
+- ``start_time``: Start of the period to analyse. It will retrieve as many periods as necessary up to right now if `end_time` is not provided. If blank, only the last `n_periods` will be retrieved.
+- ``end_time``: End of the period to analyse. Parameter only accepted when `start_time` is provided.
 
 Bot related parameters:
 - ``live``: Boolean to indicate if an infinite loop (execution of the bot) is desired. If false, the analysis will be only done once.
@@ -51,5 +51,6 @@ Check `useful_links.txt` for interesting GitHub repositories I have looked at to
 
 ### License
 Distributed under the MIT License.
-Author: Bernat Font Garcia
+  
+Author: Bernat Font Garcia  
 Email: bernatfontgarcia@gmail.com

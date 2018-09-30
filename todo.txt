@@ -1,5 +1,6 @@
 ToDO
+- User can indicate *BTC to select only BTC tickers (or ETH or whatever).
 - Double-check current TA module
-- Get last two candles strategy to monitor data (and pop oldest one when necessary)
+- Get last two candles strategy to monitor data (and pop oldest one when necessary) for live executions
 - Find buy signals strategies combinations: RSI, MACD confirm, RSI bullish div, others
 - Include AI
