@@ -79,8 +79,6 @@ class NuatsTA(object) :
         # Compute indicators
         rsi = self.rsi()
 
-        print(self.candles[-3].close)
-
         # RSI analysis
         if rsi[-1] > rsi_bull_threshold:
             notifications.append(Notification(0, self.ticker, self.interval, rsi[-1]))
