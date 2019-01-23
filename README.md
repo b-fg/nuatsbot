@@ -16,6 +16,14 @@ In order to modify the trigger values for each indicator check `nuats_ta.py`, th
 
 Additionally, I would really appreciate it if someone wants to include more TA strategies to generate the buy/sell signals.
 
+### Requirements
+
+Python 3.x required. 
+
+Add the package requirements with:
+
+`pip3 install -r requirements.txt`
+
 ### Usage
 
 In the `config.py` file the user can set the following parameters:
