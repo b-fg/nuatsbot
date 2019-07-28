@@ -121,7 +121,8 @@ class Client(object):
         res = self._get('exchangeInfo')
         for item in res['symbols']:
             if item['symbol'] == symbol.upper():
-                return item
+                if item['status'] == 'TRADING':
+                    return item
 
         return None
 
