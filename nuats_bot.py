@@ -20,7 +20,8 @@ def request_tickers():
     tickers = []
     bclient = BinanceClient().get_exchange_info()
     for element in bclient['symbols']:
-        tickers.append(element['symbol'])
+        if element['status'] == 'TRADING':
+            tickers.append(element['symbol'])
     return tickers
 
 
