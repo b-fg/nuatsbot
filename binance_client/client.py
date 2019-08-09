@@ -121,9 +121,13 @@ class Client(object):
         res = self._get('exchangeInfo')
         for item in res['symbols']:
             if item['symbol'] == symbol.upper():
-                return item
+                if item['status'] == 'TRADING':
+                    return item
+                else:
+                    raise Warning(symbol.upper() + ' is not trading ')
+        else:
+            raise Warning(symbol.upper() + ' not found.')
 
-        return None
 
     # General Endpoints
 
