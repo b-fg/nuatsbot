@@ -61,7 +61,6 @@ def TA_task(a):
         return nta.analyse()
 
 
-
 # Get configuration from config.py
 tickers = config.kline['tickers']
 intervals = config.kline['intervals']
@@ -94,7 +93,7 @@ def main():
         while True:
             with ThreadPoolExecutor(max_workers=16) as executor:
                 notifications_list =  list(tqdm(executor.map(TA_task, a), total=len(a)))
-                if (len(notifications_list) > 0): broadcast_signals(notifications_list)
+                if len(notifications_list) > 0: broadcast_signals(notifications_list)
             print('Sleeping {} sec now ... \n'.format(sleep))
             time.sleep(sleep)
 
@@ -104,7 +103,7 @@ def main():
                 for tup in a:
                     tickers_TA_list.append(TA_task(tup))
                     pbar.update(1)
-            if (len(tickers_TA_list) > 0): broadcast_signals(tickers_TA_list)
+            if len(tickers_TA_list) > 0: broadcast_signals(tickers_TA_list)
             print('Sleeping {} sec now ... \n'.format(sleep))
             time.sleep(sleep)
 
@@ -118,7 +117,7 @@ def main():
                 tickers_TA_list.append(TA_task(tup))
                 pbar.update(1)
 
-    if (len(tickers_TA_list) > 0): broadcast_signals(tickers_TA_list)
+    if len(tickers_TA_list) > 0: broadcast_signals(tickers_TA_list)
 
 
 if __name__ == '__main__':

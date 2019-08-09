@@ -112,7 +112,7 @@ class Client(object):
         """
         return self._get('exchangeInfo')
 
-    def get_symbol_info(self, symbol, status):
+    def get_symbol_info(self, symbol):
         """Return information about a symbol
         :param symbol: required e.g BNBBTC
         :type symbol: str
@@ -123,8 +123,11 @@ class Client(object):
             if item['symbol'] == symbol.upper():
                 if item['status'] == 'TRADING':
                     return item
+                else:
+                    raise Warning(symbol.upper() + ' is not trading ')
+        else:
+            raise Warning(symbol.upper() + ' not found.')
 
-        return None
 
     # General Endpoints
 
